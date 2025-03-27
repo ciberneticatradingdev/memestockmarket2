@@ -1,0 +1,76 @@
+---
+import  CarruselSlide  from './CarruselSlide.astro';
+---
+
+
+<div class="slider ">
+    <div class='slider-track py-4'>
+
+        <!-- PRIMERA PARTE  -->
+        <CarruselSlide img='/carrusel/classic.jpeg' />
+        <CarruselSlide img='/carrusel/cokedegen.jpeg' />
+        <CarruselSlide img='/carrusel/lady.jpeg' />
+        <CarruselSlide img='/carrusel/cokec4.avif' />
+        <CarruselSlide img='/carrusel/pablo1.jpeg' />
+        <CarruselSlide img='/carrusel/pepsigay.jpeg' />
+        <CarruselSlide img='/carrusel/coketruck.jpeg' />
+      
+
+
+
+
+
+        <!-- SEGUNDA PARTE  -->
+
+        <CarruselSlide img='/carrusel/classic.jpeg' />
+        <CarruselSlide img='/carrusel/cokedegen.jpeg' />
+        <CarruselSlide img='/carrusel/lady.jpeg' />
+        <CarruselSlide img='/carrusel/cokec4.avif' />
+        <CarruselSlide img='/carrusel/pablo1.jpeg' />
+        <CarruselSlide img='/carrusel/pepsigay.jpeg' />
+        <CarruselSlide img='/carrusel/coketruck.jpeg' />
+
+          
+
+
+      
+
+
+        
+  
+
+            
+  
+
+
+
+    </div>
+</div>
+
+
+<style>
+    .slider {
+        width: 100%;
+        overflow: hidden;
+    }
+    .slider-track {
+        display: flex;
+        animation: scroll 20s linear infinite;
+        -webkit-animation: scroll 50s linear infinite;
+        width: calc(600px * 14);
+    }
+    .slide {
+        width: 600px;
+    }
+    @keyframes scroll {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        100% {
+            -webkit-transform: translateX(calc(-600px * 7));
+            transform: translateX(calc(-600px * 7));
+        }
+    }
+    
+</style>

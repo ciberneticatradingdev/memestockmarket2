@@ -1,0 +1,79 @@
+---
+import  CarruselSlide  from './CarruselSlide.astro';
+---
+
+
+<div class="slider ">
+    <div class='slider-track py-4'>
+
+        <!-- PRIMERA PARTE  -->
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+      
+       
+       
+        <!-- SEGUNDA PARTE  -->
+
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+        <CarruselSlide img='/redbull.png' />
+        <CarruselSlide img='/carrusel/redbullbull.png' />
+
+          
+
+
+      
+
+
+        
+  
+
+            
+  
+
+
+
+    </div>
+</div>
+
+
+<style>
+    .slider {
+        width: 100%;
+        overflow: hidden;
+    }
+    .slider-track {
+        display: flex;
+        animation: scroll 20s linear infinite;
+        -webkit-animation: scroll 50s linear infinite;
+        width: calc(600px * 20);
+    }
+    .slide {
+        width: 600px;
+    }
+    @keyframes scroll {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        100% {
+            -webkit-transform: translateX(calc(-600px * 10));
+            transform: translateX(calc(-600px * 10));
+        }
+    }
+    
+</style>

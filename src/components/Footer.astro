@@ -1,0 +1,65 @@
+---
+import {CA, tg, dex, raydium} from "../utils/utils";
+---
+
+<footer class="w-full flex justify-center items-center px-4">
+    <div class="max-w-7xl bg-black/10 rounded-[50px] w-full flex flex-col md:flex-row items-center justify-between gap-8 p-8 mb-8">
+        <!-- Left side with text and features -->
+        <div class="w-full md:w-7/12 flex flex-col gap-8">
+            <div class="flex flex-col gap-4">
+                <h2 class="text-4xl md:text-5xl font-sans bean-title">Join Our Community</h2>
+                <p class="text-lg font-sans footer-text">Be part of the GTRUMP family. Join the $GTRUMP community and experience the most powerful token on Solana.</p>
+            </div>
+            
+            <div class="w-full flex gap-8">
+              <a href={tg} class="w-20 rounded-xl hover:scale-105 transition-all social-icon-container">
+                <img src="/social/telegram-icon-gold.svg" alt="Telegram" class="dark-only scale-110"/>
+              </a>
+
+              <a href={dex} class="w-20 rounded-xl hover:scale-105 transition-all social-icon-container">
+                <img src="/social/dex-gold.svg" alt="Dexscreener" class="dark-only scale-110"/>
+              </a>
+
+              <a href={raydium} class="w-20 rounded-xl hover:scale-105 transition-all social-icon-container">
+                <img src="/social/raydium-gold.svg" alt="Raydium" class="dark-only scale-110"/>
+              </a>
+            </div>
+        </div>
+
+        <!-- Right side with trump image -->
+        <div class="w-full md:w-5/12 flex justify-center">
+            <img src="/gtrump/gtrump.png" alt="Ghibli Trump" class="w-96 breathing-animation">
+        </div>
+    </div>
+</footer>
+
+<style>
+    .breathing-animation {
+        animation: breathing 5s ease-in-out infinite;
+    }
+
+    @keyframes breathing {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    /* Show/hide based on theme */
+    .dark-only {
+        display: block;
+    }
+    
+    html[data-theme="dark"] .social-icon-container img.dark-only {
+        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
+    }
+    
+    html[data-theme="dark"] .footer-text {
+        color: #FFD700;
+    }
+</style>

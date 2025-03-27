@@ -1,0 +1,141 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { CA, tg, dex, raydium } from "../utils/utils";
+---
+
+<Layout
+	title="GTRUMP"
+	description="The official GTRUMP cryptocurrency"
+	keywords="GTRUMP, crypto, fungible token, cryptocurrency, solana"
+	canonicalURL="https://gtrump.io/"
+	robots="index, follow"
+>
+  <main class="min-h-screen flex flex-col items-center justify-center py-12 px-4 md:px-8 relative overflow-hidden">
+    <!-- USA Flag Background -->
+    <div class="fixed inset-0 z-0 overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/gtrump/gtrump.png'); opacity: 0.15;"></div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 px-4 py-2 rounded-lg shadow-lg z-50 opacity-0 transition-opacity duration-300 flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+      </svg>
+      <span>Contract address copied!</span>
+    </div>
+
+    <!-- Trump Image -->
+    <div class="flex justify-center items-center mb-12 z-10 px-4">
+      <div class="w-64 h-64 md:w-96 md:h-96 relative transition-all duration-500 hover:scale-105">
+        <img src="/gtrump/gtrump.png" alt="GTRUMP Character" class="w-full h-full object-contain breathing-animation" />
+      </div>
+    </div>
+    
+    <!-- Description Text-->
+    <div class="max-w-6xl w-full mx-auto text-center px-4 z-10 leading-relaxed p-8 mb-12">
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-sans font-bold bean-title">
+        OFFICIAL GHIBLI TRUMP
+      </h2>
+      
+      <!-- Contract Address -->
+      <div class="mt-6 w-full max-w-2xl mx-auto">
+        <div class="flex items-center justify-between py-3 px-2 rounded-lg">
+          <p class="text-base md:text-xl font-sans tracking-wider text-center transition-colors duration-300 break-all flex-grow cursor-pointer contract-address bean-title" id="contract-address">
+            {CA}
+          </p>
+          <button id="copy-button" class="p-1 rounded transition-transform duration-300 ml-2 flex-shrink-0">
+          </button>
+        </div>
+      </div>
+      
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-8 mt-8 pt-4">
+        <a href={tg} target="_blank" class="transition-transform hover:scale-105 social-icon-container" aria-label="Join our Telegram">
+          <img src="/social/telegram-icon-gold.svg" alt="Telegram" class="w-14 h-14" />
+        </a>
+        <a href={dex} target="_blank" class="transition-transform hover:scale-105 social-icon-container" aria-label="View on Dexscreener">
+          <img src="/social/dex-gold.svg" alt="Dexscreener" class="w-14 h-14" />
+        </a>
+        <a href={raydium} target="_blank" class="transition-transform hover:scale-105 social-icon-container" aria-label="Trade on Raydium">
+          <img src="/social/raydium-gold.svg" alt="Raydium" class="w-14 h-14" />
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function copyToClipboard() {
+      const contractAddress = document.getElementById('contract-address');
+      const text = contractAddress.textContent.trim();
+      
+      // Fallback for older browsers
+      if (!navigator.clipboard) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+          document.execCommand('copy');
+          showToast();
+        } catch (err) {
+          console.error('Failed to copy text: ', err);
+        }
+        
+        document.body.removeChild(textArea);
+        return;
+      }
+      
+      // Modern browsers
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          showToast();
+        })
+        .catch(err => {
+          console.error('Failed to copy text: ', err);
+        });
+    }
+    
+    function showToast() {
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.style.opacity = '1';
+        setTimeout(() => {
+          toast.style.opacity = '0';
+        }, 3000);
+      }
+    }
+    
+    // Add click event listener to contract address
+    document.addEventListener('DOMContentLoaded', () => {
+      const contractAddress = document.getElementById('contract-address');
+      const copyButton = document.getElementById('copy-button');
+      
+      if (contractAddress && copyButton) {
+        contractAddress.addEventListener('click', copyToClipboard);
+        copyButton.addEventListener('click', copyToClipboard);
+      }
+    });
+  </script>
+
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .breathing-animation {
+      animation: breathing 5s ease-in-out infinite;
+    }
+
+    @keyframes breathing {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</Layout>

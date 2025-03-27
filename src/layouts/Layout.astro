@@ -1,0 +1,155 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	keywords: string;
+	canonicalURL: string;
+	robots: string;
+}
+
+const { title, description, keywords, canonicalURL, robots } = Astro.props;
+
+// COMPONENTS
+import Nav from "../components/believers/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- FAVICON -->
+		<link rel="icon" type="image/png" href="/seo/icon.png" />
+		<link rel="shortcut icon" type="image/png" href="/seo/icon.png" />
+		<link rel="apple-touch-icon" href="/seo/icon.png" />
+		<!-- Force favicon refresh -->
+		<link rel="icon" type="image/png" href="/seo/icon.png?v=1.0" />
+		<!-- THEME COLOR -->
+		<meta name="theme-color" content="#000000" />
+		<style>
+			@keyframes fadeInOut {
+				0%, 100% { opacity: 0.2; transform: translateY(10px); }
+				50% { opacity: 0.8; transform: translateY(0); }
+			}
+			.fade-in-out {
+				animation: fadeInOut 4s ease-in-out infinite;
+			}
+		</style>
+		<!-- GENERIC METADATA -->
+		<meta name="author" content="GTRUMP" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<!-- CANONICAL URL -->
+		<link rel="canonical" href={canonicalURL} />
+		<!-- ROBOTS -->
+		<meta name="robots" content={robots} />
+		<!-- OPENGRAPH TAGS (SOCIAL MEDIA) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={`${canonicalURL}/seo/banner.png`} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:secure_url" content={`${canonicalURL}/seo/banner.png`} />
+		<meta property="og:image:alt" content="Ghibli Trump" />
+		<!-- TWITTER/X CARD DATA -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={`${canonicalURL}/seo/banner.png`} />
+		<!-- ADDITIONAL SOCIAL MEDIA TAGS -->
+		<meta property="og:site_name" content="Ghibli Trump" />
+		<meta name="twitter:site" content="GTRUMP" />
+		<meta name="twitter:creator" content="GTRUMP" />
+		<!-- GOOGLE MATERIAL ICONS -->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!-- TITLE -->
+		<title>{title}</title>
+	</head>
+	<body class="bg-[#1B1B1B]">
+		<!-- NAVIGATION BAR -->
+		<Nav />
+		<slot />
+		<!-- SITE FOOTER -->
+		<Footer /> 
+		<style is:global>
+			/* GOOGLE FONTS */
+			@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+			:root {
+				--bean-gold: #FFD700;
+				--bean-dark-bg: #1B1B1B;
+			}
+
+			html {
+				font-family: 'Open Sans', system-ui, sans-serif;
+				background: var(--bean-dark-bg);
+				background-size: 224px;
+				color-scheme: dark;
+			}
+
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: var(--bean-dark-bg);
+				color: white;
+				transition: background-color 0.5s ease;
+				font-family: 'Open Sans', system-ui, sans-serif;
+			}
+
+			code {
+				font-family: 'Roboto Mono', monospace;
+			}
+
+			.font-sans {
+				font-family: 'Open Sans', system-ui, sans-serif;
+			}
+
+			.bean-title {
+				color: var(--bean-gold);
+				text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+			}
+
+			.contract-address {
+				font-family: 'Roboto Mono', monospace;
+				font-size: 0.9rem;
+				letter-spacing: 0.5px;
+			}
+
+			@media (min-width: 768px) {
+				.contract-address {
+					font-size: 1.1rem;
+				}
+			}
+
+			#toast {
+				background-color: #333;
+				color: white;
+			}
+
+			/* Custom scrollbar */
+			::-webkit-scrollbar {
+				width: 10px;
+			}
+
+			::-webkit-scrollbar-track {
+				background: #222;
+			}
+
+			::-webkit-scrollbar-thumb {
+				background: #444;
+				border-radius: 5px;
+			}
+
+			::-webkit-scrollbar-thumb:hover {
+				background: #555;
+			}
+		</style>
+	</body>
+</html>

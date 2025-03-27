@@ -1,0 +1,115 @@
+---
+import { CA, tg, dex, raydium, jupiter } from '../utils/utils';
+---
+
+<section class="bg-black/10 rounded-[50px] w-full max-w-7xl mx-auto flex flex-col">
+  <!-- Mobile and Tablet Layout -->
+  <div class="lg:hidden w-full flex flex-col p-4 gap-8">
+    <h1 class="font-black text-4xl sm:text-6xl tracking-tight text-white text-center">OFFICIAL <br/> <span class="text-[#FFD700]">GHIBLI</span> <br/> TRUMP</h1>
+    
+    <div class="w-full flex justify-center items-center">
+      <img src="/gtrump/gtrump.png" alt="GTRUMP Character" class="w-[65%] sm:w-[60%] h-auto object-contain breathing-animation" />
+    </div>
+
+    <text class="text-white text-2xl sm:text-3xl font-light text-center">The official GTRUMP cryptocurrency</text>
+    
+    <div class="flex flex-col gap-4 mt-4">
+      <a href={raydium} 
+         class="bg-white text-center hover:no-underline w-full py-4 text-[#0000ce] font-semibold text-xl sm:text-2xl transition-all ">
+        BUY NOW ON<br/>RAYDIUM
+      </a>
+      
+      <a href={jupiter} 
+         class="bg-white text-center hover:no-underline w-full py-4 text-[#0000ce] font-semibold text-xl sm:text-2xl transition-all ">
+        BUY NOW ON<br/>JUPITER
+      </a>
+    </div>
+  </div>
+
+  <!-- Desktop Layout -->
+  <div class="hidden lg:flex flex-col w-full">
+    <div class="w-full flex">
+      <div class="flex flex-col gap-64 w-8/12 p-8">
+        <h1 class="font-black text-8xl tracking-tight text-white">OFFICIAL <br/> <span class="text-[#FFD700]">GHIBLI</span> <br/> TRUMP</h1>
+        <text class="text-white text-4xl font-light">The official GTRUMP cryptocurrency</text>
+      </div>   
+
+      <div class="w-5/12 flex pl-4 justify-center items-center">
+        <img src="/gtrump/gtrump.png" alt="GTRUMP Character" class="w-6/12 h-5/6 object-contain rounded-2xl breathing-animation" />
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center gap-8 my-20">
+      <a href={raydium} 
+         class="bg-white text-center hover:no-underline w-[400px] py-4 text-[#0000ce] font-semibold text-2xl transition-all">
+        BUY NOW ON<br/>RAYDIUM
+      </a>
+      
+      <a href={jupiter} 
+         class="bg-white text-center hover:no-underline w-[400px] py-4 text-[#0000ce] font-semibold text-2xl transition-all">
+        BUY NOW ON<br/>JUPITER
+      </a>
+    </div>
+  </div>
+
+  <div class='w-full flex flex-col items-center p-4 lg:p-0'>
+    <h3 class="text-white text-xl sm:text-2xl font-bold mb-2">Solana Contract Address</h3>
+
+    <div class="w-full max-w-3xl p-2 sm:p-3 bg-white flex justify-between items-center text-sm sm:text-base">
+      <div class="bg-black p-1 sm:p-2 text-white rounded-lg">
+        CA:
+      </div> 
+      <div class="text-black px-2 text-center flex-1 overflow-hidden text-ellipsis">{CA}</div>
+      <button class="copy-button bg-[#d72d0e] text-white p-1 sm:p-2 rounded-lg transition-all hover:bg-[#b52409]" data-address={CA}>
+        Copy Address
+      </button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-4 py-2 rounded-lg opacity-0 transition-opacity duration-300 pointer-events-none">
+      Address copied to clipboard!
+    </div>
+
+    <p class="text-white/40 text-center text-xs max-w-5xl my-4">$GTRUMP Meme is intended to function as an expression of support for, and engagement with, the ideals and beliefs embodied by the symbol "$GTRUMP" and the associated artwork, and are not intended to be, or to be the subject of, an investment opportunity, investment contract, or security of any type.</p>
+  </div>
+
+<script>
+const copyButton = document.querySelector('.copy-button');
+const toast = document.getElementById('toast');
+let timeoutId;
+
+copyButton?.addEventListener('click', async () => {
+const address = copyButton.getAttribute('data-address');
+
+try {
+await navigator.clipboard.writeText(address);
+
+// Show toast
+toast.style.opacity = '1';
+
+// Clear existing timeout if any
+if (timeoutId) clearTimeout(timeoutId);
+
+// Hide toast after 2 seconds
+timeoutId = setTimeout(() => {
+  toast.style.opacity = '0';
+}, 2000);
+
+} catch (err) {
+console.error('Failed to copy:', err);
+}
+});
+</script>
+
+<style>
+  @keyframes breathing {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .breathing-animation {
+    animation: breathing 5s ease-in-out infinite;
+  }
+</style>
+</section>
