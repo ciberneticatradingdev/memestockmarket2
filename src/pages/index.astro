@@ -148,7 +148,7 @@ import Feed from "../components/Feed.tsx";
       
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <!-- Meme Card 1 -->
-        <div class="bg-blue-800 rounded-lg overflow-hidden shadow-lg">
+        <div class="bg-blue-800 rounded-lg overflow-hidden shadow-lg cursor-pointer meme-card" data-meme-id="1">
           <div class="p-2 bg-blue-700">
             <img src="/rarepepe.png" alt="Meme 1" class="w-full h-48 object-contain rounded" />
           </div>
@@ -165,7 +165,7 @@ import Feed from "../components/Feed.tsx";
         </div>
         
         <!-- Meme Card 2 -->
-        <div class="bg-blue-800 rounded-lg overflow-hidden shadow-lg">
+        <div class="bg-blue-800 rounded-lg overflow-hidden shadow-lg cursor-pointer meme-card" data-meme-id="2">
           <div class="p-2 bg-blue-700">
             <img src="/maxitrades666.jpg" alt="Meme 2" class="w-full h-48 object-cover rounded" />
           </div>
@@ -182,7 +182,7 @@ import Feed from "../components/Feed.tsx";
         </div>
         
         <!-- Meme Card 3 -->
-        <div class="bg-blue-800 rounded-lg overflow-hidden shadow-lg">
+        <div class="bg-blue-800 rounded-lg overflow-hidden shadow-lg cursor-pointer meme-card" data-meme-id="3">
           <div class="p-2 bg-blue-700">
             <img src="/bitmeme.png" alt="Meme 3" class="w-full h-48 object-cover rounded" />
           </div>
@@ -199,7 +199,7 @@ import Feed from "../components/Feed.tsx";
         </div>
         
         <!-- Meme Card 4 -->
-        <div class="bg-blue-800 rounded-lg overflow-hidden shadow-lg">
+        <div class="bg-blue-800 rounded-lg overflow-hidden shadow-lg cursor-pointer meme-card" data-meme-id="4">
           <div class="p-2 bg-blue-700">
             <img src="/lockheed.png" alt="Meme 4" class="w-full h-48 object-cover rounded" />
           </div>
@@ -242,7 +242,133 @@ import Feed from "../components/Feed.tsx";
     </footer>
   </main>
 
+  <!-- Meme Detail Modal -->
+  <div id="meme-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-gradient-to-b from-blue-900 to-blue-700 rounded-lg p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-4">
+        <h2 id="modal-title" class="text-2xl font-bold text-white">Meme Details</h2>
+        <button id="close-modal" class="text-white hover:text-gray-300 text-2xl">&times;</button>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Meme Image -->
+        <div class="bg-blue-800 rounded-lg p-4">
+          <img id="modal-image" src="" alt="Meme" class="w-full h-64 object-contain rounded" />
+        </div>
+        
+        <!-- Meme Info -->
+        <div class="space-y-4">
+          <div class="bg-blue-800/50 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-2">Trading Info</h3>
+            <div class="space-y-2 text-white">
+              <div class="flex justify-between">
+                <span>Current Price:</span>
+                <span id="modal-price" class="text-green-400 font-bold">$0.00</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Volume (24h):</span>
+                <span id="modal-volume" class="text-blue-300">0</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Market Cap:</span>
+                <span id="modal-market-cap" class="text-blue-300">$0</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Status:</span>
+                <span id="modal-status" class="font-semibold">Active</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-blue-800/50 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-2">Performance</h3>
+            <div class="space-y-2 text-white">
+              <div class="flex justify-between">
+                <span>24h Change:</span>
+                <span id="modal-change" class="font-bold">+0.00%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>7d Change:</span>
+                <span id="modal-change-7d" class="font-bold">+0.00%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>All Time High:</span>
+                <span id="modal-ath" class="text-blue-300">$0.00</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-blue-800/50 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-2">Description</h3>
+            <p id="modal-description" class="text-gray-300 text-sm leading-relaxed">Loading description...</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-6 flex gap-4">
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors flex-1">
+          Buy Now
+        </button>
+        <button class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors flex-1">
+          Add to Watchlist
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Meme data
+    const memeData = {
+      1: {
+        name: "Rare Pepe",
+        image: "/rarepepe.png",
+        price: "$0.56",
+        volume: "10",
+        marketCap: "$5,600",
+        status: "Active",
+        change24h: "+2.34%",
+        change7d: "+15.67%",
+        ath: "$0.89",
+        description: "The legendary Rare Pepe collection represents one of the earliest and most iconic meme cryptocurrencies. Known for its rarity and cultural significance in the crypto community."
+      },
+      2: {
+        name: "Maxi Trades 666",
+        image: "/maxitrades666.jpg",
+        price: "$2.00",
+        volume: "200",
+        marketCap: "$400,000",
+        status: "Active",
+        change24h: "+5.12%",
+        change7d: "+23.45%",
+        ath: "$3.50",
+        description: "Maxi Trades 666 is a high-volume trading meme that has gained significant traction among crypto maximalists. Features strong community support and active trading."
+      },
+      3: {
+        name: "BitMeme",
+        image: "/bitmeme.png",
+        price: "$0.56",
+        volume: "2000",
+        marketCap: "$1,120,000",
+        status: "Declining",
+        change24h: "-1.23%",
+        change7d: "-8.90%",
+        ath: "$1.25",
+        description: "BitMeme combines the power of Bitcoin culture with meme economics. Despite recent decline, it maintains a strong holder base and potential for recovery."
+      },
+      4: {
+        name: "Lockheed Meme",
+        image: "/lockheed.png",
+        price: "$0.56",
+        volume: "10",
+        marketCap: "$5,600",
+        status: "Active",
+        change24h: "+0.87%",
+        change7d: "+4.32%",
+        ath: "$0.78",
+        description: "Lockheed Meme represents the intersection of aerospace technology and meme culture. A niche but dedicated community drives its steady growth."
+      }
+    };
+
     // Background music control
     document.addEventListener('DOMContentLoaded', () => {
       const music = document.getElementById('background-music') as HTMLAudioElement;

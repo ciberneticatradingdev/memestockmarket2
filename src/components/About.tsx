@@ -8,7 +8,7 @@ export default function About() {
       title: 'Overview',
       content: (
         <div class="space-y-6">
-          <div class="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-6 rounded-lg border border-blue-500/30">
+          <div class="bg-gradient-to-r from-blue-900/50 to-blue-800/50 p-6 rounded-lg border border-blue-500/30">
             <h3 class="text-2xl font-bold text-white mb-4">Welcome to memestockmarket.fun</h3>
             <p class="text-gray-300 text-lg leading-relaxed">
               The world's first decentralized meme stock market where internet culture meets financial innovation. 
@@ -17,9 +17,9 @@ export default function About() {
           </div>
           
           <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
+            <div class="bg-blue-800/50 p-6 rounded-lg border border-blue-700">
               <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
@@ -31,9 +31,9 @@ export default function About() {
               </p>
             </div>
             
-            <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
+            <div class="bg-blue-800/50 p-6 rounded-lg border border-blue-700">
               <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
@@ -53,33 +53,33 @@ export default function About() {
       content: (
         <div class="space-y-6">
           <div class="grid gap-6">
-            <div class="bg-gradient-to-r from-green-900/30 to-blue-900/30 p-6 rounded-lg border border-green-500/30">
+            <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/30 p-6 rounded-lg border border-blue-500/30">
               <h4 class="text-xl font-bold text-white mb-3 flex items-center">
-                <span class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3 text-sm">📈</span>
+                <span class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3 text-sm">📈</span>
                 Real-time Meme Trading
               </h4>
               <p class="text-gray-300">Track meme performance across social platforms with live price updates and market sentiment analysis.</p>
             </div>
             
-            <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 p-6 rounded-lg border border-purple-500/30">
+            <div class="bg-gradient-to-r from-blue-900/30 to-blue-700/30 p-6 rounded-lg border border-blue-500/30">
               <h4 class="text-xl font-bold text-white mb-3 flex items-center">
-                <span class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3 text-sm">🎯</span>
+                <span class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3 text-sm">🎯</span>
                 Smart Portfolio Management
               </h4>
               <p class="text-gray-300">Advanced analytics and AI-powered recommendations to optimize your meme investment strategy.</p>
             </div>
             
-            <div class="bg-gradient-to-r from-orange-900/30 to-red-900/30 p-6 rounded-lg border border-orange-500/30">
+            <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/30 p-6 rounded-lg border border-blue-500/30">
               <h4 class="text-xl font-bold text-white mb-3 flex items-center">
-                <span class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3 text-sm">🚀</span>
+                <span class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3 text-sm">🚀</span>
                 Meme Launchpad
               </h4>
               <p class="text-gray-300">Launch your own memes and watch them compete in the marketplace. Creators earn royalties from trading activity.</p>
             </div>
             
-            <div class="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 p-6 rounded-lg border border-cyan-500/30">
+            <div class="bg-gradient-to-r from-blue-900/30 to-blue-700/30 p-6 rounded-lg border border-blue-500/30">
               <h4 class="text-xl font-bold text-white mb-3 flex items-center">
-                <span class="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center mr-3 text-sm">🏆</span>
+                <span class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3 text-sm">🏆</span>
                 Leaderboards & Rewards
               </h4>
               <p class="text-gray-300">Compete with other traders, climb the leaderboards, and earn exclusive rewards and NFT badges.</p>
@@ -99,7 +99,7 @@ export default function About() {
           
           <div class="grid md:grid-cols-3 gap-8">
             <div class="text-center">
-              <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span class="text-2xl font-bold text-white">1</span>
               </div>
               <h4 class="text-xl font-semibold text-white mb-3">Create Account</h4>
@@ -107,7 +107,7 @@ export default function About() {
             </div>
             
             <div class="text-center">
-              <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span class="text-2xl font-bold text-white">2</span>
               </div>
               <h4 class="text-xl font-semibold text-white mb-3">Discover Memes</h4>
@@ -115,7 +115,7 @@ export default function About() {
             </div>
             
             <div class="text-center">
-              <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div class="w-16 h-16 bg-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span class="text-2xl font-bold text-white">3</span>
               </div>
               <h4 class="text-xl font-semibold text-white mb-3">Trade & Profit</h4>
@@ -123,9 +123,9 @@ export default function About() {
             </div>
           </div>
           
-          <div class="bg-gradient-to-r from-yellow-900/20 to-orange-900/20 p-6 rounded-lg border border-yellow-500/30 mt-8">
+          <div class="bg-gradient-to-r from-blue-900/20 to-blue-800/20 p-6 rounded-lg border border-blue-500/30 mt-8">
             <div class="flex items-start">
-              <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -213,7 +213,7 @@ export default function About() {
   }
 
   return (
-    <div class="min-h-screen bg-gradient-to-b from-blue-900 to-blue-700 p-6">
+    <div class="min-h-screen bg-gradient-to-b from-blue-900 to-blue-700 text-white p-6">
       <div class="max-w-6xl mx-auto">
         {/* Header */}
         <div class="text-center mb-12">
@@ -252,11 +252,17 @@ export default function About() {
             <h3 class="text-2xl font-bold text-white mb-4">Ready to Start Trading?</h3>
             <p class="text-gray-200 mb-6">Join thousands of traders and start your meme investment journey today!</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <button class="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Get Started Now
+              <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                Join Discord
               </button>
-              <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">
-                View Live Demo
+              <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+                Follow Twitter
               </button>
             </div>
           </div>
