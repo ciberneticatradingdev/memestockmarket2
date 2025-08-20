@@ -48,7 +48,7 @@ import Feed from "../components/Feed.tsx";
           <h1 class="text-2xl font-bold text-white">memestockmarket<span class="text-green-400">.fun</span></h1>
         </div>
         <div>
-          <AuthButtons client:load />
+          <AuthButtons client:only="solid" />
         </div>
       </div>
       
@@ -211,12 +211,12 @@ import Feed from "../components/Feed.tsx";
       
       <!-- About Section -->
       <div id="about-section" class="content-section hidden">
-        <About client:load />
+        <About client:only="solid" />
       </div>
       
       <!-- Feed Section -->
       <div id="feed-section" class="content-section hidden">
-        <Feed client:load />
+        <Feed client:only="solid" />
       </div>
     </div>
     </div>

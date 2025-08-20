@@ -77,25 +77,11 @@ const ogImage = new URL('/seo/banner.png', canonicalURL).toString();
 		<!-- SITE FOOTER -->
 		<!-- <Footer /> -->
 		<style is:global>
-			/* CUSTOM FONTS */
-			@font-face {
-				font-family: 'Yeezy';
-				src: url('/font/yeezy.ttf') format('truetype');
-				font-weight: normal;
-				font-style: normal;
-			}
-
-			@font-face {
-				font-family: 'FSEX302';
-				src: url('/font/FSEX302.ttf') format('truetype');
-				font-weight: normal;
-				font-style: normal;
-			}
-
 			/* GOOGLE FONTS */
+			@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 			html {
-				font-family: "FSEX302", "Open Sans", sans-serif;
+				font-family: "Inter", "Open Sans", sans-serif;
 				@apply text-slate-900;
 				@apply bg-cover;
 			}
