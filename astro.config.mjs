@@ -5,7 +5,7 @@ import solidJs from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel/serverless";
 
 export default defineConfig({
-  site: "https://astro-simple-starter.netlify.app/",
+  site: "https://www.memestockmarket.fun/",
   integrations: [tailwind(), sitemap(), solidJs()],
   output: "server", // o "server", según el caso
   adapter: vercel(),
