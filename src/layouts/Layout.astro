@@ -8,22 +8,41 @@ interface Props {
 }
 
 const { title, description, keywords, canonicalURL, robots } = Astro.props;
-const ogImage = new URL('/seo/banner.png', canonicalURL).toString();
 
-// COMPONENTS
+
+
+// Determinar si estamos en la página de inicio
+const isHomePage = Astro.url.pathname === "/";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<!-- DNS prefetch for external resources -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="//fonts.gstatic.com" />
 		<!-- FAVICON -->
 		<link rel="icon" type="image/png" href="/seo/icon.png" />
-		<link rel="apple-touch-icon" href="/seo/icon.png" />
 		<!-- THEME COLOR -->
 		<meta name="theme-color" content="#800080" />
+		
+		<!-- PRELOAD CRITICAL RESOURCES -->
+		<!-- Preload main hero image -->
+		<link rel="preload" href="/hero2/character2.png" as="image" type="image/png" />
+		<!-- Preload custom fonts -->
+		<link rel="preload" href="/font/Amiger Cartoon.ttf" as="font" type="font/ttf" crossorigin />
+		<!-- Preload SEO images -->
+		<link rel="preload" href="/seo/icon.png" as="image" type="image/png" />
+		<link rel="preload" href="/seo/banner.png" as="image" type="image/png" />
+		<!-- Preload Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" as="style" />
+		<link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style" />
 		<style>
+			/* Critical CSS for immediate rendering */
 			@keyframes fadeInOut {
 				0%, 100% { opacity: 0.2; transform: translateY(10px); }
 				50% { opacity: 0.8; transform: translateY(0); }
@@ -31,9 +50,23 @@ const ogImage = new URL('/seo/banner.png', canonicalURL).toString();
 			.fade-in-out {
 				animation: fadeInOut 4s ease-in-out infinite;
 			}
+			
+			/* Hero section critical styles */
+			#hero {
+				background: linear-gradient(to bottom, #eab308, #fde047);
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			/* Prevent layout shift */
+			body {
+				margin: 0;
+				padding: 0;
+			}
 		</style>
-		<!-- GENERIC METADATA -->
-		<meta name="author" content="" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="keywords" content={keywords} />
@@ -46,27 +79,50 @@ const ogImage = new URL('/seo/banner.png', canonicalURL).toString();
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalURL} />
-		<meta property="og:image" content={ogImage} />
+		<meta property="og:image" content={`${canonicalURL}/seo/banner.png`} />
+		<meta property="og:image:secure_url" content={`${canonicalURL}/seo/banner.png`} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="memestockmarket" />
 		<meta property="og:image:type" content="image/png" />
-		<meta property="og:site_name" content="" />
+		<meta property="og:site_name" content="memestockmarket" />
+		<meta property="og:locale" content="en_US" />
+		
 		<!-- TWITTER/X CARD DATA -->
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="" />
+		<meta name="twitter:creator" content="" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={ogImage} />
-		<meta name="twitter:image:alt" content={title} />
-		<!-- TELEGRAM/DISCORD/FACEBOOK SHARING -->
-		<meta property="og:locale" content="en_US" />
-		<meta name="theme-color" content="#000000" />
-		<!-- GOOGLE MATERIAL ICONS -->
+		<meta name="twitter:image" content={`${canonicalURL}/seo/banner.png`} />
+		<meta name="twitter:image:alt" content="memestockmarket" />
+		
+		<!-- TELEGRAM SPECIFIC -->
+		<meta property="telegram:channel" content="" />
+		<meta name="telegram:image" content={`${canonicalURL}/seo/banner.png`} />
+		
+		<!-- WHATSAPP AND MESSAGING APPS -->
+		<meta property="og:image:url" content={`${canonicalURL}/seo/banner.png`} />
+		<meta property="og:updated_time" content={new Date().toISOString()} />
+		
+		<!-- ADDITIONAL META TAGS FOR BETTER SHARING -->
+		<meta name="theme-color" content="#eab308" />
+		<meta name="msapplication-TileColor" content="#eab308" />
+		<meta name="msapplication-TileImage" content="/seo/icon.png" />
+		
+		<!-- FORCE REFRESH FOR SOCIAL MEDIA CRAWLERS -->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<!-- GOOGLE FONTS AND MATERIAL ICONS -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+			rel="stylesheet"
+		/>
 		<link
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
 			rel="stylesheet"
 		/>
-		<!-- SUPABASE CLIENT -->
-		<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 		<!-- TITLE -->
 		<title>{title}</title>
 	</head>
@@ -75,13 +131,92 @@ const ogImage = new URL('/seo/banner.png', canonicalURL).toString();
 		<!-- <Nav /> -->
 		<slot />
 		<!-- SITE FOOTER -->
-		<!-- <Footer /> -->
+		<!-- GAME INVITATION MODAL -->
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				// Verificar si estamos en la página de inicio
+				const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index' || window.location.pathname === '/index.html';
+				
+				// Función para manejar el scroll a cualquier sección
+				function handleSmoothScroll(e, hash) {
+					e.preventDefault();
+					const isMobile = window.innerWidth < 1024;
+
+					// Mapa de selectores específicos para diferentes secciones
+					const sectionSelectors = {
+						'#ca': isMobile ? '.lg\\:hidden #ca' : '.hidden.lg\\:flex #ca',
+						'#community': '#community',
+						'#roadmap': '#roadmap',
+						'#faq': '#faq'
+					};
+
+					const selector = sectionSelectors[hash];
+					if (!selector) return;
+
+					const targetElement = document.querySelector(selector);
+					if (targetElement) {
+						setTimeout(() => {
+							targetElement.scrollIntoView({ behavior: 'smooth' });
+						}, 100);
+					}
+				}
+
+				// Manejar todos los enlaces internos
+				document.querySelectorAll('a[href^="#"]').forEach(link => {
+					link.addEventListener('click', (e) => {
+						const hash = link.getAttribute('href');
+						if (hash && hash !== '#') {
+							handleSmoothScroll(e, hash);
+						}
+					});
+				});
+
+				// Manejar enlaces que comienzan con /# (redirecciones desde otras páginas)
+				if (isHomePage) {
+					document.querySelectorAll('a[href^="/#"]').forEach(link => {
+						link.addEventListener('click', (e) => {
+							e.preventDefault();
+							const hash = link.getAttribute('href').substring(1); // Quitar el / inicial
+							if (hash && hash !== '#') {
+								handleSmoothScroll(e, hash);
+								// Actualizar la URL sin recargar la página
+								window.history.pushState(null, '', hash);
+							}
+						});
+					});
+				}
+
+				// Manejar el evento cuando se carga la página con un hash
+				if (window.location.hash) {
+					handleSmoothScroll(new Event('load'), window.location.hash);
+				}
+
+				// Manejar cambios de tamaño de ventana
+				let resizeTimeout;
+				window.addEventListener('resize', () => {
+					clearTimeout(resizeTimeout);
+					resizeTimeout = setTimeout(() => {
+						if (window.location.hash) {
+							handleSmoothScroll(new Event('resize'), window.location.hash);
+						}
+					}, 250);
+				});
+			});
+		</script>
+
 		<style is:global>
-			/* GOOGLE FONTS */
-			@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+			/* CUSTOM FONT DEFINITIONS */
+			@font-face {
+				font-family: 'Amiger Cartoon';
+				src: url('/font/Amiger Cartoon.ttf') format('truetype');
+				font-weight: normal;
+				font-style: normal;
+				font-display: swap;
+			}
 
 			html {
-				font-family: "Inter", "Open Sans", sans-serif;
+				font-family: "Open Sans", sans-serif;
 				@apply text-slate-900;
 				@apply bg-cover;
 			}
