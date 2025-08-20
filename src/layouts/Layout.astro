@@ -10,8 +10,7 @@ interface Props {
 const { title, description, keywords, canonicalURL, robots } = Astro.props;
 
 // COMPONENTS
-import Nav from "../components/believers/Nav.astro";
-import Footer from "../components/Footer.astro";
+
 ---
 
 <!DOCTYPE html>
@@ -55,13 +54,15 @@ import Footer from "../components/Footer.astro";
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:secure_url" content={`${canonicalURL}/seo/banner.png`} />
 		<meta property="og:image:alt" content="" />
-		<!-- X.COM CARD DATA -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={title} />
-	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content={`${canonicalURL}/seo/banner.png`} />
+		<!-- TWITTER/X CARD DATA -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={`${canonicalURL}/seo/banner.png`} />
 		<!-- ADDITIONAL SOCIAL MEDIA TAGS -->
 		<meta property="og:site_name" content="" />
+		<meta name="twitter:site" content="" />
+		<meta name="twitter:creator" content="" />
 		<!-- GOOGLE MATERIAL ICONS -->
 		<link
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -70,7 +71,7 @@ import Footer from "../components/Footer.astro";
 		<!-- TITLE -->
 		<title>{title}</title>
 	</head>
-	<body class="bg-blue-900">
+	<body class="bg-[#1B1B1B]">
 		<!-- NAVIGATION BAR -->
 		<!-- <Nav /> -->
 		<slot />
@@ -82,7 +83,7 @@ import Footer from "../components/Footer.astro";
 
 			:root {
 				--bean-gold: #FFD700;
-				--bean-dark-bg: #1e3a8a;
+				--bean-dark-bg: #1B1B1B;
 			}
 
 			html {
