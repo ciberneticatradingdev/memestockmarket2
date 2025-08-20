@@ -92,7 +92,7 @@ export default function Feed() {
         author: 'ViralVestor',
         avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ViralVestor',
         content: 'New meme alert! 🚨 "Woman Yelling at Cat" just hit the market. Early investors are already seeing 200% gains!',
-        image: 'https://via.placeholder.com/400x300/1f2937/ffffff?text=Woman+Yelling+at+Cat+Meme',
+        image: '',
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2),
         likes: 156,
         comments: [],
