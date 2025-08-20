@@ -384,7 +384,7 @@ import Feed from "../components/Feed.tsx";
       
       // Function to play music after user interaction
       function playMusic() {
-        if (!musicPlaying) {
+        if (!musicPlaying && music instanceof HTMLAudioElement) {
           music.play().then(() => {
             musicPlaying = true;
             soundOnIcon?.classList.remove('hidden');
@@ -397,7 +397,7 @@ import Feed from "../components/Feed.tsx";
       
       // Toggle music on/off
       soundToggle?.addEventListener('click', () => {
-        if (musicPlaying) {
+        if (musicPlaying && music instanceof HTMLAudioElement) {
           music.pause();
           musicPlaying = false;
           soundOnIcon?.classList.add('hidden');
@@ -459,8 +459,11 @@ import Feed from "../components/Feed.tsx";
           if (meme) {
             // Update modal content
             document.getElementById('modal-title').textContent = meme.name;
-            document.getElementById('modal-image').src = meme.image;
-            document.getElementById('modal-image').alt = meme.name;
+            const modalImg = document.getElementById('modal-image');
+            if (modalImg instanceof HTMLImageElement) {
+              modalImg.src = meme.image;
+              modalImg.alt = meme.name;
+            }
             document.getElementById('modal-price').textContent = meme.price;
             document.getElementById('modal-volume').textContent = meme.volume;
             document.getElementById('modal-market-cap').textContent = meme.marketCap;
